@@ -80,12 +80,13 @@ fn find_subarray(nums: &[i32], sum: i32) -> (usize, usize) {
         // minus the length of the subarray
         // 0..(7-[7,6,5,4,3,2,1] + 1 )
         for subarray_index in 0..nums.len() - current_num_index + 1 {
-            println!(
-                "subarray_index: {:?}, current_num_index: {:?}",
-                subarray_index, current_num_index
-            );
             // we grab a subarray starting from the current subarray index ending at the current subarray index + the current pointer of the nums array index
-            // 1..(1+7) = 1..8
+            // 0..(0+7) = 0..7
+            println!(
+                "starting index: {}, ending index:{}",
+                subarray_index,
+                subarray_index + current_num_index
+            );
             if array_sum(&nums[subarray_index..subarray_index + current_num_index]) == sum {
                 return (subarray_index, current_num_index);
             }
